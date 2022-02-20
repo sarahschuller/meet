@@ -8,7 +8,7 @@ const calendar = google.calendar("v3");
  * update the calendar yourself. For more info, check out the SCOPES documentation at this link: https://developers.google.com/identity/protocols/oauth2/scopes
  */
 
-const SCOPES = ["https://www.googleapis.com/auth/calendar.readoly"];
+const SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
 /**
  * Credentials are those values required to get access to your calender. If you see "process.env" this means
