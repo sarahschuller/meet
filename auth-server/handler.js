@@ -33,6 +33,10 @@ const oAuth2Client = new google.auth.OAuth2(
   redirect_uris[0]
 );
 
+headers: {
+  'Access-Control-Allow-Origin': '*'
+},
+
 /**
  *
  * The first step in the OAuth process is to generate a URL so users can log in with
