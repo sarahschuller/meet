@@ -66,21 +66,22 @@
       const accessTokenElement = document.getElementById("accessToken");
       const getToken = "https://1k6hw3ll5h.execute-api.us-east-1.amazonaws.com/dev/api/token";
 
-      getAccessToken.onclick = function ()
-      {
-          let code = codeValue.value;
-          if(decodeURIComponent(code) === code){
-              code = encodeURIComponent(codeValue.value);
-          }
-          const getTokenRequest = getToken + "/" + code;
-          fetch(getTokenRequest)
-            .then(function (response){
-                return response.json();
-            })
-            .then(function (json){
-                accessTokenElement.innerText = JSON.stringify(json);
-            });
-      };
+      getAccessToken.onclick = function () {
+      let code = codeValue.value;
+
+
+      if (decodeURIComponent(code) === code) {
+        code = encodeURIComponent(codeValue.value);
+      }
+      const getTokenRequest = getToken + "/" + code;
+      fetch(getTokenRequest)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          accessTokenElement.innerText = JSON.stringify(json);
+        });
+    };
 
     </script>
   </body>
