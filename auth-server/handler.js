@@ -75,7 +75,7 @@ module.exports.getAccessToken = async (event) => {
       });
   };
 
-module.exports.getCalendarEvents = event => {
+module.exports.getCalendarEvents = async (event) => {
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
@@ -85,7 +85,6 @@ module.exports.getCalendarEvents = event => {
   oAuth2Client.setCredentials({ access_token });
 
   return new Promise((resolve, reject) => {
-
 
     calendar.events.list(
       {
