@@ -10,24 +10,21 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<CitySearch /> component', () => {
-  test('render text input', () => {
-    const CitySearchWrapper = shallow(<CitySearch />);
-    expect(CitySearchWrapper.find('.city')).toHaveLength(1);
-  });
+    let CitySearchWrapper;
+    beforeAll(() => {
+      CitySearchWrapper = shallow(<CitySearch />);
+    });
 
   test('renders a list of suggestions', () => {
-    const CitySearchWrapper = shallow(<CitySearch />);
     expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1);
   });
 
   test('renders text input correctly', () => {
-    const CitySearchWrapper = shallow(<CitySearch />);
     const query = CitySearchWrapper.state('query');
     expect(CitySearchWrapper.find('.city').prop('value')).toBe(query);
   });
 
   test('change state when text input changes', () => {
-    const CitySearchWrapper = shallow(<CitySearch />);
     CitySearchWrapper.setState({
       query: 'Munich'
     });
@@ -38,7 +35,6 @@ describe('<CitySearch /> component', () => {
 
   test('render list of suggestions correctly', () => {
     const locations = extractLocations(mockData);
-    const CitySearchWrapper = shallow(<CitySearch />);
     CitySearchWrapper.setState({ suggestions: locations });
     const suggestions = CitySearchWrapper.state('suggestions');
     expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(suggestions.length + 1);
