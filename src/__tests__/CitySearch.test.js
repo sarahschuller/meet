@@ -2,6 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
 
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('<CitySearch /> component', () => {
   test('render text input', () => {
     const CitySearchWrapper = shallow(<CitySearch />);
@@ -12,6 +17,6 @@ describe('<CitySearch /> component', () => {
     const CitySearchWrapper = shallow(<CitySearch />);
     expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1);
   });
-  
+
 });
 
