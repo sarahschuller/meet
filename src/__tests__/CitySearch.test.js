@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
+import { mockData } from '../mock-data';
+import { extractLocations } from '../api';
 
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
