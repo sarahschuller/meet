@@ -10,9 +10,10 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<CitySearch /> component', () => {
-    let CitySearchWrapper;
+    let locations, CitySearchWrapper;
     beforeAll(() => {
-      CitySearchWrapper = shallow(<CitySearch />);
+      locations = extractLocations(mockData);
+      CitySearchWrapper = shallow(<CitySearch locations={locations} />);
     });
 
   test('renders a list of suggestions', () => {
