@@ -4,6 +4,12 @@ class CitySearch extends Component {
   state = {
     query: ''
   }
+
+  handleInputChanges = (event) => {
+    const value = event.target.value;
+    this.setState({ query: value });
+  }
+  
   render() {
     return (
       <div className="CitySearch">
