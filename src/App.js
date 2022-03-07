@@ -21,6 +21,12 @@ updateEvents = (location) => {
   });
 }
 
+componentDidMount() {
+  getEvents().then((events) => {
+    this.setState({ events, locations: extractLocations(events) });
+  });
+}
+
 class App extends Component {
 
   state ={
