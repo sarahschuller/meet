@@ -27,6 +27,10 @@ componentDidMount() {
   });
 }
 
+componentWillUnmount(){
+  this.mounted = false;
+}
+
 class App extends Component {
 
   state ={
