@@ -4,6 +4,8 @@ import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
+import { mockData } from '../mock-data';
+import { extractLocations } from '../api';
 
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
@@ -48,5 +50,5 @@ describe('<App /> integration', () => {
     expect(AppWrapper.find(CitySearch).props().locations).toEqual(AppLocationsState);
     AppWrapper.unmount();
   });
-  
+
 });
