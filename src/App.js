@@ -9,6 +9,15 @@ export const getEvents = async () => {
   return mockData;
 };
 
+updateEvents = (location) => {
+  getEvents().then((events) => {
+    const locationEvents = events.filter((event) => event.location === location);
+    this.setState({
+      events: locationEvents
+    });
+  });
+}
+
 class App extends Component {
 
   state ={
