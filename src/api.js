@@ -21,5 +21,5 @@ import axios from 'axios';
 
   export const getAccessToken = async () =>
   {
-    
-  }
+
+  };
