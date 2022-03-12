@@ -26,7 +26,9 @@ import axios from 'axios';
   };
 
   export const getEvents = async () => {
-    return mockData;
+    if (window.location.href.startsWith('http://localhost')) {
+      return mockData;
+     }
   };
 
   export const getAccessToken = async () =>
