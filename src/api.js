@@ -93,7 +93,7 @@ import NProgress from 'nprogress';
   const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
-      'YOUR_GET_ACCESS_TOKEN_ENDPOINT' + '/' + encodeCode
+      'https://1k6hw3ll5h.execute-api.us-east-1.amazonaws.com/dev/api/token' + '/' + encodeCode
     )
       .then((res) => {
         return res.json();
