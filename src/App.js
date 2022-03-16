@@ -32,7 +32,6 @@ class App extends Component {
     });
   };
 
-
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
