@@ -3,7 +3,6 @@ import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
-import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 
 class App extends Component {
@@ -57,20 +56,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      
-      <NumberOfEvents
-          updateNumberOfEvents={(number) => {
-            this.updateNumberOfEvents(number);
-          }}
+        <CitySearch
+          locations={this.state.locations}
+          updateEvents={this.updateEvents}
         />
-
-      <CitySearch 
-      locations={this.state.locations} 
-      updateEvents={this.updateEvents} />  
-
-      <EventList 
-      events={this.state.events} />
-
+        <EventList
+          events={this.state.events}
+          numberOfEvents={this.state.numberOfEvents}
+        />
       </div>
     );
   }
