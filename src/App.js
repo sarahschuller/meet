@@ -4,7 +4,7 @@ import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations, checkToken } from './api';
+import { getEvents, extractLocations } from './api';
 
 class App extends Component {
   state = {
@@ -33,36 +33,18 @@ class App extends Component {
   };
 
 
-  async componentDidMount() {
+  componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem("access_token");
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
-        }
-      });
-    }
-
-    if (!navigator.onLine) {
-      this.setState({
-        OfflineText:
-          "You are currently offline. Events will not be updated.",
-      });
-    } else {
-      this.setState({
-        OfflineText: "",
-      });
-    }
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
   }
 
-componentWillUnmount(){
-  this.mounted = false;
-}
+  componentWillUnmount(){
+    this.mounted = false;
+  }
 
   render() {
     return (
