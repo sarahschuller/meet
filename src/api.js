@@ -72,7 +72,7 @@ import NProgress from 'nprogress';
     }
   };
 
-  const removeQuery = async () => {
+  const removeQuery = () => {
     if (window.history.pushState && window.location.pathname) {
       var newurl =
         window.location.protocol +
