@@ -3,11 +3,11 @@
     Feature: Specify number of events
 
     Scenario: When user hasn't specified a number, 30 is the default number
-        Given the user has not specified a number of events to be displayed
-        When the user loads the app
+        Given the user is on the main page of the app
+        When the user hasn't specified a number of events
         Then 30 events will be seen by default
 
     Scenario: User can change the number of events they want to see
         Given the user wants to change the number of events to be displayed
-        When the user selects the dropdown
-        Then the user can select the number of events to be displayed
+        When the user sets a number of events they want to see
+        Then this number of events will be displayed
