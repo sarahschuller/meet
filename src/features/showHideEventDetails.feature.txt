@@ -1,0 +1,18 @@
+    
+    
+    Feature: Show/Hide an event's details
+
+    Scenerio: An event element is collapsed by default
+        Given the user is on the main page
+        When nothing is selected
+        Then the event element will collapsed
+    
+    Scenario: User can expand an event to see its details
+        Given the user wants to see event details
+        When the user selects an event
+        Then details about the event will expand
+
+    Scenario: User can collapse an event to hide its details
+        Given the user wants to hide an event's details
+        When the user selects an expanded event
+        Then the details about the event will collapse
