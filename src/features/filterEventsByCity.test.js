@@ -7,9 +7,10 @@ defineFeature(feature, test => {
       given('user hasn’t searched for any city', () => {
   
       });
-  
+
+      let AppWrapper;
       when('the user opens the app', () => {
-  
+        AppWrapper = mount(<App />);
       });
   
       then('the user should see the list of upcoming events.', () => {
