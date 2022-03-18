@@ -41,4 +41,21 @@ defineFeature(feature, (test) => {
     });
   });
 
+// Scenario 3
+  test("User can collapse an event to hide its details", ({ given, when, then }) => {
+    given("the user wants to hide an event's details", async () => {
+        AppWrapper = await mount(<App />);
+        AppWrapper.update();
+        AppWrapper.find(".event__detailsButton").at(0).simulate("click");
+        expect(AppWrapper.find(".event__moreDetails")).toHaveLength(1);
+    });
+
+    when("the user selects an expanded event", () => {
+        AppWrapper.find(".event__detailsButton").at(0).simulate("click");
+    });
+
+    then("the details about the event will collapse", () => {
+        expect(AppWrapper.find(".event__moreDetails")).toHaveLength(0);
+    });
+  });
 });
