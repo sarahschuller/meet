@@ -65,7 +65,7 @@ defineFeature(feature, test => {
       });
   
       and('the user should receive a list of upcoming events in that city', () => {
-  
+        expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
       });
     });
   });
