@@ -1,4 +1,4 @@
-import { puppeteerErrors } from "puppeteer";
+import puppeteer from 'puppeteer';
 
 describe('show/hide an event details', () => {
     test('An event element is collapsed by default', async () => {
