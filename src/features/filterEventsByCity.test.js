@@ -7,6 +7,7 @@ import { mockData } from '../mock-data';
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, test => {
+    // Scenario 1
     test('When user hasn’t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
       given('user hasn’t searched for any city', () => {
   
@@ -22,7 +23,8 @@ defineFeature(feature, test => {
         expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
       });
     });
-  
+    
+    // Scenario 2
     test('User should see a list of suggestions when they search for a city', ({ given, when, then }) => {
       given('the main page is open', () => {
   
@@ -37,7 +39,7 @@ defineFeature(feature, test => {
       });
     });
   
-  
+    // Scenario 3
     test('User can select a city from the suggested list', ({ given, and, when, then }) => {
       given('user was typing “Berlin” in the city textbox', () => {
   
