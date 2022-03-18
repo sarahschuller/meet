@@ -60,7 +60,8 @@ defineFeature(feature, test => {
       });
   
       then('their city should be changed to that city (i.e., “Berlin, Germany”)', () => {
-  
+        const CitySearchWrapper = AppWrapper.find(CitySearch);
+        expect(CitySearchWrapper.state('query')).toBe('Berlin, Germany');
       });
   
       and('the user should receive a list of upcoming events in that city', () => {
