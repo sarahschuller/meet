@@ -5,6 +5,7 @@ import App from '../App';
 import { mockData } from '../mock-data';
 import CitySearch from '../CitySearch';
 
+
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, test => {
@@ -27,10 +28,10 @@ defineFeature(feature, test => {
     
     // Scenario 2
     test('User should see a list of suggestions when they search for a city', ({ given, when, then }) => {
-      let CitySearchWrapper;
-      given('the main page is open', () => {
-        CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
-      });
+        let CitySearchWrapper;
+        given('the main page is open', () => {
+          CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
+        });
   
       when('the user starts typing in the city textbox', () => {
   
