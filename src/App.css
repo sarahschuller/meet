@@ -55,7 +55,7 @@ input[type="number"] {
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
+  top: 70px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -78,7 +78,8 @@ input[type="number"] {
 
 .event {
   padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 0px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
