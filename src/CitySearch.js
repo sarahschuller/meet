@@ -23,9 +23,8 @@ class CitySearch extends Component {
     } else {
       return this.setState({
         query: value,
-        suggestions: [],
-        showSuggestions:false,
-        infoText:''
+        suggestions,
+        infoText: ''
       });
     }
   };
@@ -51,25 +50,18 @@ class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => {
-            this.setState({ showSuggestions: true });
+            this.setState({ showSuggestions: true })
           }}
+          placeholder="Search for Cities..."
         />
-        <ul
-          className="suggestions"
-          style={this.state.showSuggestions ? {} : { display: "none" }}
-        >
-          {this.state.suggestions.map((suggestion) => (
-            <li
-              key={suggestion}
-              onClick={() => this.handleItemClicked(suggestion)}
-            >
-              {suggestion}
+        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
+            {this.state.suggestions.map((suggestion) => (
+              <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
+            ))}
+            <li key="all" onClick={() => this.handleItemClicked("all")}>
+              <b >See all cities</b>
             </li>
-          ))}
-          <li onClick={() => this.handleItemClicked("all")}>
-            <b>See all cities</b>
-          </li>
-        </ul>
+          </ul>
       </div>
     );
   }
