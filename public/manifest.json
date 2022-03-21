@@ -1,7 +1,6 @@
 {
   "short_name": "React App",
   "name": "Create React App Sample",
-  "description": "Provides a list of events and allows the user to view in Google Calendar",
   "icons": [
     {
       "src": "favicon.ico",
