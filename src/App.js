@@ -42,13 +42,23 @@ class App extends Component {
     });
   };
 
- async componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
+        getEvents().then((events) => {
       if (this.mounted) {
         this.setState({ events, locations: extractLocations(events) });
+        }
+      });
+      
+      if (!navigator.onLine) {
+        this.setState({
+          OfflineAlertText: 'You are not connected to the internet'
+        });
+      } else {
+        this.setState({
+          OfflineAlertText: ''
+        });
       }
-    });
   }
 
   componentWillUnmount(){

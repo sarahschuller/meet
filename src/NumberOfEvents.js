@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ErrorAlert, InfoAlert } from './Alert';
+import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
   state = {
