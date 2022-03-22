@@ -49,7 +49,7 @@ class App extends Component {
         this.setState({ events, locations: extractLocations(events) });
         }
       });
-      
+
       if (!navigator.onLine) {
         this.setState({
           OfflineAlertText: 'You are not connected to the internet'
@@ -66,9 +66,10 @@ class App extends Component {
   }
 
   render() {
+    const { OfflineAlertText } = this.state;
     return (
       <div className="App">
-      
+      <OfflineAlert text={OfflineAlertText} />
       <NumberOfEvents
           updateNumberOfEvents={(number) => {
             this.updateNumberOfEvents(number);
