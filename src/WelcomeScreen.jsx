@@ -28,6 +28,12 @@ function WelcomeScreen(props) {
 
             </div>
         </div>
+        <a
+          href="#"
+          rel="nofollow noopener"
+        >
+          Privacy policy
+</a>
 </div> )
 : null }
 export default WelcomeScreen;
