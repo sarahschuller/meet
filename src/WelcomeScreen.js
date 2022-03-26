@@ -1,22 +1,33 @@
 import React from "react";
 import './WelcomeScreen.css';
-
 function WelcomeScreen(props) {
-    return props.showWelcomeScreen ?
-      (
-        <div className="WelcomeScreen">
-          <h1>Welcome to the Meet App!</h1>
-          <h3>
-            Login to view upcoming events for web developers around the world!
-          </h3>
+  return props.showWelcomeScreen ?
+    (
+      <div className="WelcomeScreen">
+        <h1>Welcome to the Meet app</h1>
+        <h4>
+          Log in to see upcoming events around the world for
+          full-stack
+          developers
+      </h4>
+        <div className="button_cont" align="center">
+          <div class="google-btn">
+            <div class="google-icon-wrapper">
+              <img
+                class="google-icon"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="Google sign-in"
+              />
+            </div>
+            <button onClick={() => { props.getAccessToken() }}
+              rel="nofollow noopener"
+              class="btn-text"
+            >
+              <b>Sign in with google</b>
+            </button>
 
-          <button 
-          className='login-button' 
-          onClick={() => { props.getAccessToken() }} 
-          rel='nofollow noopener'>
-              Sign in with Google
-          </button>
-          </div>)
+            </div>
+        </div>
+</div> )
 : null }
-
 export default WelcomeScreen;
