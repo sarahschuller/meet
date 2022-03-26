@@ -24,13 +24,20 @@ class App extends Component {
     numberOfEvents: 30,
   }
 
-  updateNumberOfEvents = (numberOfEvents) => {
-    this.setState(
-      {
-        numberOfEvents,
-      },
-      this.updateEvents(this.state.location, numberOfEvents)
-    );
+  updateNumberOfEvents = async (e) => {
+    const newNumber = e.target.value ? parseInt(e.target.value) : 30;
+    if (newNumber <= 0 || newNumber > 30) {
+      await this.setState({
+        numberOfEvents: newNumber,
+        errorAlert: 'Please enter a number between 1 and 30'
+      });
+    } else {
+      await this.setState({
+        errorAlert: '',
+        numberOfEvents: newNumber
+      });
+      this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
+    }
   };
 
   updateEvents = (location, eventCount) => {
@@ -95,11 +102,11 @@ class App extends Component {
 
       <CitySearch 
         updateEvents={this.updateEvents} 
-        locations={locations} />
+        locations={this.state.locations} />
 
       <NumberOfEvents
-        updateEvents={this.updateEvents}
-        numberOfEvents={numberOfEvents}
+        updateNumberOfEvents={this.updateNumberOfEvents}
+        numberOfEvents={this.state.numberOfEvents}
         />       
          <h4>Events in each city</h4>
 
