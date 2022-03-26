@@ -88,4 +88,6 @@ And the user should receive a list of upcoming events in that city</li>
 <li>When the user wants to see upcoming events</li>
 <li>Then the user will see a chart with the number of upcoming events in each city</li>
 </ul>
-
+<a href="https://sarahschuller.github.io/meet/" target="blank">View Live</a>
+<br><br>
+<img src="https://user-images.githubusercontent.com/93050611/160255685-8b04625a-3937-4109-a30a-20d40c0ab1cf.png">
