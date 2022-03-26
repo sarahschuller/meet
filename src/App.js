@@ -6,6 +6,14 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import { OfflineAlert } from './Alert';
+import {
+  ScatterChart, 
+  Scatter, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip
+} from 'recharts';
 
 class App extends Component {
   state = {
@@ -76,25 +84,38 @@ class App extends Component {
   };
 
   render() {
-    const { OfflineAlertText } = this.state;
+    const { locations, numberOfEvents, OfflineAlertText } = this.state;
     return (
       <div className="App">
-      <OfflineAlert text={OfflineAlertText} />
-      <NumberOfEvents
-          updateNumberOfEvents={(number) => {
-            this.updateNumberOfEvents(number);
-          }}
-        />
+        <h1>Meet App</h1>
+        <h4>Choose your nearest city</h4>
+      <OfflineAlert 
+        text={OfflineAlertText} />
 
       <CitySearch 
-      locations={this.state.locations} 
-      updateEvents={this.updateEvents} />  
+        updateEvents={this.updateEvents} 
+        locations={locations} />
 
-      <EventList 
-      events={this.state.events} 
-      numberOfEvents={this.state.numberOfEvents}
-      />
+      <NumberOfEvents
+        updateEvents={this.updateEvents}
+        numberOfEvents={numberOfEvents}
+        />       
+         <h4>Events in each city</h4>
 
+         <ScatterChart
+          width={400}
+          height={400}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
+          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter name="A school" data={data} fill="#8884d8" />
+        </ScatterChart>
+        <EventList events={this.state.events} />
       </div>
     );
   }
