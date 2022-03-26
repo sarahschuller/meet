@@ -6,6 +6,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import { OfflineAlert } from './Alert';
+import EventGenre from "./EventGenre";
 import {
   ScatterChart, 
   Scatter, 
