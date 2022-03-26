@@ -111,6 +111,12 @@ class App extends Component {
         />       
          <h4>Events in each city</h4>
 
+        {/*Pie Chart */}
+         <div className="data-vis-wrapper">
+          <EventGenre events={this.state.events} />
+        {/* End Pie Chart */}
+
+        {/* Scatterchart */}
         <ResponsiveContainer height={400}>
          <ScatterChart
           className="chart"
@@ -138,9 +144,12 @@ class App extends Component {
           data={this.getData()} 
           fill="#8884d8" />        
           </ScatterChart>
-
+          
         </ResponsiveContainer>
-        
+        {/* End Scatter Chart */}
+
+        </div>
+
         <EventList 
         events={this.state.events} />
       </div>
