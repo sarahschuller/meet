@@ -4,9 +4,8 @@ import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations, getAccessToken } from './api';
+import { getEvents, extractLocations } from './api';
 import { OfflineAlert } from './Alert';
-import WelcomeScreen from './WelcomeScreen';
 import {
   ScatterChart, 
   Scatter, 
@@ -93,25 +92,6 @@ class App extends Component {
   };
 
   render() {
-    const refreshPage = () => {
-      window.location.reload();
-    }
-
-    if (this.state.showWelcomeScreen === undefined &&
-      navigator.onLine && !window.location.href.startsWith('http://localhost')
-    ) {
-      return <div className='App' />;
-    }
-    if (this.state.showWelcomeScreen === true)
-      return (
-        <WelcomeScreen
-          showWelcomeScreen={this.state.showWelcomeScreen}
-          getAccessToken={() => {
-            getAccessToken();
-          }}
-        />
-      );
-
     const { locations, numberOfEvents, OfflineAlertText } = this.state;
     return (
       <div className="App">
@@ -162,11 +142,6 @@ class App extends Component {
         
         <EventList 
         events={this.state.events} />
-
-        <WelcomeScreen 
-        showWelcomeScreen={this.state.showWelcomeScreen}
-        getAccessToken={() => { getAccessToken() }} />
-
       </div>
     );
   }
