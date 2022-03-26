@@ -32,18 +32,18 @@ p {
 }
 
 a {
-  color: mediumblue;
+  color: #304366;
   font-size: 16px;
   text-decoration: none;
 }
 
 a:hover {
-  color: darkblue;
+  color: #fd768c;
   font-weight: 600;
 }
 
 a:visited {
-  color: darkgreen;
+  color: #b45666;
 }
 
 input[type="text"],
@@ -111,7 +111,7 @@ h1 {
   padding: 10px 10px 35px;
   margin-top: 40px;
   margin-bottom: 0px;
-  text-align: left;
+  text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
